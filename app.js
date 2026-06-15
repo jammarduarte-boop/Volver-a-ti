@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Cargar Base de datos JSON
 async function cargarContenido() {
     try {
-        const response = await fetch('data/contenido.json');
+        const response = await fetch('contenido.json');
         appData = await response.json();
         obtenerReflexion();
         obtenerAfirmacion();
