@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volver a Ti – Refugio Emocional</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Volver a Ti ⚜️</h1>
+    </header>
+
+    <nav id="main-nav">
+        <button onclick="switchScreen('inicio')" id="nav-inicio" class="active">🏠 Inicio</button>
+        <button onclick="switchScreen('emociones')">💭 Emociones</button>
+        <button onclick="switchScreen('reflexion')">📖 Reflexión</button>
+        <button onclick="switchScreen('diario')">📝 Diario</button>
+        <button onclick="switchScreen('afirmaciones')">✨ Afirmaciones</button>
+        <button onclick="switchScreen('sos')">🆘 SOS</button>
+        <button onclick="switchScreen('libro')">📚 Libro</button>
+    </nav>
+
+    <main>
+        <!-- PANTALLA 1: INICIO -->
+        <section id="screen-inicio" class="screen active">
+            <div class="card">
+                <h2>Bienvenida a Volver a Ti</h2>
+                <p>Tu espacio seguro para sanar, crecer y reconectar contigo misma.</p>
+            </div>
+            <button class="btn-large" onclick="switchScreen('emociones')">💭 ¿Cómo me siento hoy?</button>
+            <button class="btn-large" onclick="switchScreen('reflexion')">📖 Reflexión del día</button>
+            <button class="btn-large" onclick="switchScreen('sos')">🆘 SOS Emocional</button>
+        </section>
+
+        <!-- PANTALLA 2: EMOCIONES -->
+        <section id="screen-emociones" class="screen">
+            <div class="card">
+                <h2>¿Cómo me siento hoy?</h2>
+                <p>Identifica tu estado actual para recibir apoyo.</p>
+                <div class="grid-emociones">
+                    <button class="btn-emocion" onclick="selectEmotion('Triste')">😔 <span>Triste</span></button>
+                    <button class="btn-emocion" onclick="selectEmotion('Ansiosa')">😰 <span>Ansiosa</span></button>
+                    <button class="btn-emocion" onclick="selectEmotion('Agotada')">😴 <span>Agotada</span></button>
+                    <button class="btn-emocion" onclick="selectEmotion('Herida')">💔 <span>Herida</span></button>
+                    <button class="btn-emocion" onclick="selectEmotion('Perdida')">🌧 <span>Perdida</span></button>
+                    <button class="btn-emocion" onclick="selectEmotion('Esperanzada')">🌱 <span>Esperanzada</span></button>
+                </div>
+            </div>
+            <div id="resultado-emocion" class="card" style="display: none;"></div>
+        </section>
+
+        <!-- PANTALLA 3: REFLEXIÓN DEL DÍA -->
+        <section id="screen-reflexion" class="screen">
+            <div class="card">
+                <h2>Reflexión del Día</h2>
+                <p id="texto-reflexion" style="font-style: italic; font-size: 1.2rem; margin: 20px 0;"></p>
+                <button class="btn-action" onclick="obtenerReflexion()">Nueva reflexión</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA 4: DIARIO EMOCIONAL -->
+        <section id="screen-diario" class="screen">
+            <div class="card">
+                <h2>Diario Emocional</h2>
+                <div class="form-group">
+                    <label>¿Qué siento hoy?</label>
+                    <textarea id="q1"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Qué me preocupa?</label>
+                    <textarea id="q2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Qué necesito escuchar?</label>
+                    <textarea id="q3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Qué agradezco?</label>
+                    <textarea id="q4"></textarea>
+                </div>
+                <button class="btn-action" onclick="guardarDiario()">Guardar Entrada</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA 5: AFIRMACIONES -->
+        <section id="screen-afirmaciones" class="screen">
+            <div class="card">
+                <h2>Tus Afirmaciones</h2>
+                <p id="texto-afirmacion" style="font-weight: 600; font-size: 1.3rem; color: var(--accent-gold); margin: 20px 0;"></p>
+                <button class="btn-action" onclick="obtenerAfirmacion()">Siguiente afirmación</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA 6: SOS EMOCIONAL -->
+        <section id="screen-sos" class="screen">
+            <div class="card" style="border: 2px solid #ffb3b3;">
+                <h2>Botón de Emergencia</h2>
+                <button class="btn-large btn-action" style="background: #ff4d4d; text-align: center; color: white; border: none;" onclick="activarSOS()">🆘 Necesito apoyo</button>
+            </div>
+            <div id="resultado-sos" class="card" style="display: none; background: #fff5f5;"></div>
+        </section>
+
+        <!-- PANTALLA 7: LIBRO / EMBUTIDO DE CONVERSIÓN -->
+        <section id="screen-libro" class="screen">
+            <div class="card">
+                <h2>Libro Volver a Ti</h2>
+                <!-- Imagen Temporal Reemplazable -->
+                <div style="background: var(--primary-pink); width: 150px; height: 220px; margin: 0 auto 20px; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    📚 Portada
+                </div>
+                <p style="font-size: 1.1rem; font-weight: bold;">Descubre el camino de regreso hacia ti misma.</p>
+                <p>Lleva tu proceso de sanación al siguiente nivel con nuestra guía completa paso a paso.</p>
+                <a href="https://go.hotmart.com/S105769900X" target="_blank" style="text-decoration: none;">
+                    <button class="btn-large btn-hotmart" style="text-align: center;">🛒 Comprar Ebook</button>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+:root {
+    --bg-warm: #FAF6F0;
+    --primary-pink: #E8D3C9;
+    --accent-gold: #D4AF37;
+    --text-dark: #4A3E3D;
+    --text-muted: #7A6F6E;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-warm);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--white);
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 2px solid var(--primary-pink);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    overflow-x: auto;
+    background: var(--white);
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    gap: 10px;
+}
+
+nav button {
+    background: none;
+    border: 1px solid var(--primary-pink);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--text-dark);
+    transition: all 0.3s;
+}
+
+nav button.active, nav button:hover {
+    background: var(--primary-pink);
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+/* App Container & Screens */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* UI Elements */
+.card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(232, 211, 201, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn-large {
+    display: block;
+    width: 100%;
+    background: var(--white);
+    border: 2px solid var(--primary-pink);
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.btn-large:hover {
+    background: var(--primary-pink);
+    transform: translateY(-2px);
+}
+
+.btn-action {
+    background: var(--text-dark);
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-action:hover {
+    background: var(--text-muted);
+}
+
+.btn-hotmart {
+    background: linear-gradient(135deg, #D4AF37, #B48A1F);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.btn-hotmart:hover {
+    background: linear-gradient(135deg, #B48A1F, #946F15);
+}
+
+/* Grid Emociones */
+.grid-emociones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-emocion {
+    background: var(--white);
+    border: 1px solid var(--primary-pink);
+    padding: 20px 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-emocion:hover {
+    background: var(--primary-pink);
+    transform: scale(1.03);
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid var(--primary-pink);
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+    background: var(--bg-warm);
+}
+
+textarea:focus {
+    outline: 2px solid var(--accent-gold);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
